@@ -2,8 +2,13 @@ package org.example;
 
 import java.sql.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
+
+    private static final Logger logger =
+            Logger.getLogger(Main.class.getName());
 
     private static final String SQL = """
         SELECT e.last_name || ' ' || e.first_name AS employee,
@@ -27,6 +32,8 @@ public class Main {
              PreparedStatement stmt = conn.prepareStatement(SQL);
              ResultSet rs = stmt.executeQuery()) {
 
+            logger.info("Подключение к базе данных установлено");
+
             boolean hasRows = false;
 
             System.out.printf("%-30s | %-25s | %s%n",
@@ -36,10 +43,12 @@ public class Main {
             while (rs.next()) {
                 hasRows = true;
 
-                System.out.printf("%-30s | %-25s | %s%n",
+                System.out.println(formatEmployee(
                         rs.getString("employee"),
                         rs.getString("position"),
-                        rs.getString("email"));
+                        rs.getString("email")
+                        )
+                );
             }
 
             if (!hasRows) {
@@ -47,12 +56,27 @@ public class Main {
             }
 
         } catch (SQLException e) {
-            System.err.println(
-                    "Ошибка подключения или выполнения SQL: "
-                            + e.getMessage()
+            logger.log(
+                    Level.SEVERE,
+                    "Ошибка подключения или выполнения SQL",
+                    e
             );
+
             System.exit(1);
         }
+    }
+
+    public static String formatEmployee(
+            String employee,
+            String position,
+            String email
+    ) {
+        return String.format(
+                "%-30s | %-25s | %s",
+                employee,
+                position,
+                email
+        );
     }
 
     private static String env(String name, String defaultValue) {

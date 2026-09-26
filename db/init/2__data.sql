@@ -46,7 +46,7 @@ SELECT 'Петрова',
        'Анна',
        'Сергеевна',
        '1994-07-22',
-       'anna.petrova@example.com',
+       'anna.petrova@mail.com',
        '+79992345678',
        position_id
 FROM positions
@@ -64,7 +64,7 @@ SELECT 'Сидоров',
        'Пётр',
        'Алексеевич',
        '1988-11-03',
-       'petr.sidorov@example.com',
+       'petr.sidorov@gmail.com',
        '+79993456789',
        position_id
 FROM positions
@@ -82,7 +82,7 @@ SELECT 'Кузнецова',
        'Мария',
        'Игоревна',
        '1996-01-18',
-       'maria.kuznetsova@example.com',
+       'maria.kuznetsova@outlook.com',
        '+79994567890',
        position_id
 FROM positions
@@ -100,7 +100,7 @@ SELECT 'Васильев',
        'Дмитрий',
        'Олегович',
        '1985-09-27',
-       'dmitry.vasiliev@example.com',
+       'dmitry.vasiliev@gmail.com',
        '+79995678901',
        position_id
 FROM positions
@@ -127,7 +127,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN departments d
               ON d.department_name = 'Управление проектами'
-WHERE e.email = 'anna.petrova@example.com';
+WHERE e.email = 'anna.petrova@mail.com';
 
 
 INSERT INTO employee_departments (employee_id,
@@ -139,7 +139,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN departments d
               ON d.department_name = 'Тестирование'
-WHERE e.email = 'petr.sidorov@example.com';
+WHERE e.email = 'petr.sidorov@gmail.com';
 
 
 INSERT INTO employee_departments (employee_id,
@@ -151,7 +151,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN departments d
               ON d.department_name = 'Разработка'
-WHERE e.email = 'maria.kuznetsova@example.com';
+WHERE e.email = 'maria.kuznetsova@gmail.com';
 
 
 INSERT INTO employee_departments (employee_id,
@@ -163,7 +163,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN departments d
               ON d.department_name = 'IT-инфраструктура'
-WHERE e.email = 'dmitry.vasiliev@example.com';
+WHERE e.email = 'dmitry.vasiliev@gmail.com';
 
 INSERT INTO employee_documents (employee_id,
                                 document_type_id,
@@ -178,7 +178,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN document_types dt
               ON dt.type_name = 'Паспорт'
-WHERE e.email = 'ivan.ivanov@example.com';
+WHERE e.email = 'ivan.ivanov@gmail.com';
 
 
 INSERT INTO employee_documents (employee_id,
@@ -194,7 +194,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN document_types dt
               ON dt.type_name = 'Паспорт'
-WHERE e.email = 'anna.petrova@example.com';
+WHERE e.email = 'anna.petrova@gmail.com';
 
 
 INSERT INTO employee_documents (employee_id,
@@ -210,7 +210,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN document_types dt
               ON dt.type_name = 'Паспорт'
-WHERE e.email = 'petr.sidorov@example.com';
+WHERE e.email = 'petr.sidorov@gmail.com';
 
 
 INSERT INTO employee_documents (employee_id,
@@ -226,7 +226,7 @@ SELECT e.employee_id,
 FROM employees e
          JOIN document_types dt
               ON dt.type_name = 'Паспорт'
-WHERE e.email = 'maria.kuznetsova@example.com';
+WHERE e.email = 'maria.kuznetsova@gmail.com';
 
 
 INSERT INTO employee_documents (employee_id,
@@ -242,4 +242,4 @@ SELECT e.employee_id,
 FROM employees e
          JOIN document_types dt
               ON dt.type_name = 'Паспорт'
-WHERE e.email = 'dmitry.vasiliev@example.com';
+WHERE e.email = 'dmitry.vasiliev@gmail.com';
